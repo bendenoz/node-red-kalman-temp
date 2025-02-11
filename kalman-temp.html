@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    RED.nodes.registerType("kalman-temp", {
+        category: "function",
+        color: "#a6bbcf",
+        defaults: {
+            R: { value: 0.0015, required: true, validate: RED.validators.number() },
+            Q: { value: 0.2, required: true, validate: RED.validators.number() }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-thermometer-half",
+        label: function () {
+            return "Kalman Temp";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="kalman-temp">
+    <div class="form-row">
+        <label for="node-input-R"><i class="fa fa-cog"></i> Process Noise (R)</label>
+        <input type="text" id="node-input-R">
+    </div>
+    <div class="form-row">
+        <label for="node-input-Q"><i class="fa fa-cog"></i> Measurement Noise (Q)</label>
+        <input type="text" id="node-input-Q">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="kalman-temp">
+    <p>Applies a Kalman filter to smooth temperature readings.</p>
+    <p><strong>Default Configuration:</strong></p>
+    <ul>
+        <li><strong>R:</strong> Process noise covariance (0.0015 deg/min²)</li>
+        <li><strong>Q:</strong> Measurement noise covariance (0.2°C)</li>
+    </ul>
+</script>
