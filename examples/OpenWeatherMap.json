@@ -1,0 +1,114 @@
+[
+    {
+        "id": "76fc4851a50bc3bb",
+        "type": "inject",
+        "z": "6f7d7db989e06695",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "900",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "a1e3995c1d13ad6e"
+            ]
+        ]
+    },
+    {
+        "id": "a1e3995c1d13ad6e",
+        "type": "openweathermap",
+        "z": "6f7d7db989e06695",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Paris",
+        "country": "France",
+        "language": "en",
+        "credentials": {
+            "apikey": ""
+        },
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "db0417d10b60db1c"
+            ]
+        ]
+    },
+    {
+        "id": "db0417d10b60db1c",
+        "type": "change",
+        "z": "6f7d7db989e06695",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Outside",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 240,
+        "wires": [
+            [
+                "13e4702f33b4d0a7"
+            ]
+        ]
+    },
+    {
+        "id": "13e4702f33b4d0a7",
+        "type": "kalman-temp",
+        "z": "6f7d7db989e06695",
+        "R": 0.2,
+        "Q": 0.001,
+        "predictInterval": 60,
+        "x": 840,
+        "y": 240,
+        "wires": [
+            [
+                "bfdfcb37d9a37d24"
+            ]
+        ]
+    },
+    {
+        "id": "bfdfcb37d9a37d24",
+        "type": "debug",
+        "z": "6f7d7db989e06695",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 240,
+        "wires": []
+    }
+]
