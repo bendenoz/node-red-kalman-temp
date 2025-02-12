@@ -1,6 +1,7 @@
 {
   "name": "@bendenoz/node-red-kalman-temp",
-  "version": "1.0.3",
+  "description": "Node-RED custom node for applying a Kalman filter to smooth temperature readings.",
+  "version": "1.0.4",
   "main": "index.js",
   "scripts": {
     "test": "jest",
