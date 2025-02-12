@@ -3,8 +3,9 @@
         category: "function",
         color: "#a6bbcf",
         defaults: {
-            R: { value: 0.0015, required: true, validate: RED.validators.number() },
-            Q: { value: 0.2, required: true, validate: RED.validators.number() }
+            R: { value: 0.2, required: true, validate: RED.validators.number() },
+            Q: { value: 0.001, required: true, validate: RED.validators.number() },
+            predictInterval: { value: 60, required: true, validate: RED.validators.number() } // New parameter
         },
         inputs: 1,
         outputs: 1,
@@ -17,12 +18,16 @@
 
 <script type="text/html" data-template-name="kalman-temp">
     <div class="form-row">
-        <label for="node-input-R"><i class="fa fa-cog"></i> Process Noise (R)</label>
+        <label for="node-input-R"><i class="fa fa-cog"></i> Measurement Noise (R)</label>
         <input type="text" id="node-input-R">
     </div>
     <div class="form-row">
-        <label for="node-input-Q"><i class="fa fa-cog"></i> Measurement Noise (Q)</label>
+        <label for="node-input-Q"><i class="fa fa-cog"></i> Process Noise (Q)</label>
         <input type="text" id="node-input-Q">
+    </div>
+    <div class="form-row"> <!-- New input field -->
+        <label for="node-input-predictInterval"><i class="fa fa-cog"></i> Predict Interval</label>
+        <input type="text" id="node-input-predictInterval">
     </div>
 </script>
 
@@ -30,7 +35,8 @@
     <p>Applies a Kalman filter to smooth temperature readings.</p>
     <p><strong>Default Configuration:</strong></p>
     <ul>
-        <li><strong>R:</strong> Process noise covariance (0.0015 deg/min²)</li>
-        <li><strong>Q:</strong> Measurement noise covariance (0.2°C)</li>
+        <li><strong>R:</strong> Measurement noise covariance (0.2°C)</li>
+        <li><strong>Q:</strong> Process noise covariance (0.001 deg/min/min^.5) - change with caution</li>
+        <li><strong>Predict Interval:</strong> Interval for prediction updates (default: 60 seconds)</li> <!-- New help entry -->
     </ul>
 </script>

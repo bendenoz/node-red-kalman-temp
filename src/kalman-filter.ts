@@ -48,20 +48,21 @@ export class KalmanFilter {
           },
           transition: ({ steptime }: { steptime: number }) => {
             return [
-              [1, steptime],
+              [1, steptime / 60],
               [0, 1],
             ];
           },
-          // Q (noise)
+          /** Q (noise) */
           covariance: ({
             steptime,
           }: { steptime: number }) => {
             const dTmin = steptime / 60;
-            const rateNoise = this.Q;
+            const rateNoise = this.Q * dTmin ** .5;
             const valueNoise = rateNoise * dTmin;
+            const correl = 1; // assume total correlation since one determines the other
             return [
-              [valueNoise ** 2 * dTmin, 0],
-              [0, rateNoise ** 2 * dTmin],
+              [valueNoise ** 2, correl * valueNoise * rateNoise],
+              [correl * valueNoise * rateNoise, rateNoise ** 2],
             ];
           },
         },
@@ -70,6 +71,7 @@ export class KalmanFilter {
       console.error(e);
       throw e;
     }
+    this.state = this.kf.getInitState();
     this.lastTS = initTs;
   }
 
