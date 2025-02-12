@@ -1,6 +1,6 @@
 {
   "name": "@bendenoz/node-red-kalman-temp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -16,7 +16,8 @@
   "node-red": {
     "nodes": {
       "kalman-temp": "dist/kalman-temp.js"
-    }
+    },
+    "version": ">=2.2.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
@@ -26,5 +27,8 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=14.18.2"
   }
 }

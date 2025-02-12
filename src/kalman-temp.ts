@@ -1,10 +1,11 @@
 import { Node, NodeDef, NodeAPI } from "node-red";
 import { KalmanFilter } from "./kalman-filter";
+import { performance } from 'perf_hooks';
 
 export interface KalmanTempNodeDef extends NodeDef {
-    R: number;
-    Q: number;
-    predictInterval: number;
+    R?: number;
+    Q?: number;
+    predictInterval?: number;
 }
 
 interface Props {
@@ -33,15 +34,14 @@ module.exports = function (RED: NodeAPI) {
             if (!props) return;
             const now = performance.now();
             props.kf.predict(now);
-            const [value] = props.kf.mean();
-            node.send([{ payload: value }]);
         };
 
-        const schedulePrediction = () => {
+        const schedulePrediction = (sendCallback: () => void) => {
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => {
                 predict();
-                schedulePrediction();
+                sendCallback();
+                schedulePrediction(sendCallback);
             }, interval);
         };
 
@@ -59,9 +59,12 @@ module.exports = function (RED: NodeAPI) {
                 props.kf.correct(pv, st);
             }
 
-            const [value] = props!.kf.mean();
-            node.send([{ payload: value }]);
-            schedulePrediction();
+            const sendValue = () => {
+                const [value] = props!.kf.mean();
+                node.send([{ ...msg, payload: value }]);
+            }
+            sendValue();
+            schedulePrediction(sendValue);
         });
 
         node.on("close", () => {

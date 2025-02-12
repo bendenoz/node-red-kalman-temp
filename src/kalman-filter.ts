@@ -1,7 +1,6 @@
 import KalmanClass from "kalman-filter/lib/kalman-filter";
 import StateType from "kalman-filter/lib/state";
-
-const { performance } = require("perf_hooks"); // not needed for node > ??
+import { performance } from 'perf_hooks';
 
 require("kalman-filter"); // must be required to init default models
 
