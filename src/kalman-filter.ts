@@ -7,7 +7,10 @@ require("kalman-filter"); // must be required to init default models
 export class KalmanFilter {
   kf: KalmanClass | undefined;
 
+  /** last predicted or corrected state */
   state: StateType | null = null;
+  /** last corrected state */
+  previousCorrected: StateType | null = null;
 
   /**
    * previous timestamp, in milliseconds
@@ -71,35 +74,33 @@ export class KalmanFilter {
       throw e;
     }
     this.state = this.kf.getInitState();
+    this.previousCorrected = this.state;
     this.lastTS = initTs;
   }
 
-  /** Returns step duration in seconds, used by correct */
   predict(ts = performance.now()) {
     if (!this.kf || !this.lastTS) throw new Error("No KF instance");
     const steptime = (ts - this.lastTS) / 1000;
     const predicted = this.kf.predict({
-      previousCorrected: this.state,
+      previousCorrected: this.previousCorrected,
       steptime,
     });
     this.state = predicted;
-    this.lastTS = ts;
-    return steptime;
   }
 
   /**
    * @param value
-   * @param steptime - maybe not needed?
+   * @param ts
    */
-  correct(value: number, steptime: number) {
+  correct(value: number, ts: number) {
     if (!this.kf) throw new Error("No KF instance");
     const corrected = this.kf.correct({
       predicted: this.state,
       observation: [value],
-      steptime,
     });
-
+    this.previousCorrected = corrected;
     this.state = corrected;
+    this.lastTS = ts;
   }
 
   mean(): [number | null, number | null] {

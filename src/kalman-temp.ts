@@ -45,23 +45,30 @@ module.exports = function (RED: NodeAPI) {
             }, interval);
         };
 
-        node.on("input", (msg) => {
+        node.on("input", (msg, send, done) => {
             const pv = Number(msg.payload);
             if (isNaN(pv) || !isFinite(pv)) {
                 return node.warn("Input must be a valid number.");
             }
+
+            // Node-RED 0.x compat - https://nodered.org/docs/creating-nodes/node-js#sending-messages
+            const nodeSend =
+                send ||
+                function (...args) {
+                node.send.apply(node, args);
+                };
 
             const now = performance.now();
             if (!props) {
                 initProps(pv, now);
             } else {
                 const st = props.kf.predict(now);
-                props.kf.correct(pv, st);
+                props.kf.correct(pv, now);
             }
 
             const sendValue = () => {
                 const [value] = props!.kf.mean();
-                node.send([{ ...msg, payload: value }]);
+                nodeSend([{ ...msg, payload: value }]);
             }
             sendValue();
             schedulePrediction(sendValue);
