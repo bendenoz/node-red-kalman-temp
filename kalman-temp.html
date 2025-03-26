@@ -6,13 +6,15 @@
             R: { value: 0.2, required: true, validate: RED.validators.number() },
             Q: { value: 0.001, required: true, validate: RED.validators.number() },
             predictInterval: { value: 60, required: true, validate: RED.validators.number() },
-            lookAhead: { value: 0, required: true, validate: RED.validators.number() } 
+            lookAhead: { value: 0, required: true, validate: RED.validators.number() },
+            label: { value: "", required: false },
+            topic: { value: "", required: false }
         },
         inputs: 1,
         outputs: 1,
         icon: "font-awesome/fa-thermometer-half",
         label: function () {
-            return "Kalman Temp";
+            return this.label || "Kalman Temp";
         }
     });
 </script>
@@ -34,6 +36,14 @@
         <label for="node-input-lookAhead"><i class="fa fa-cog"></i> Look Ahead (seconds)</label>
         <input type="text" id="node-input-lookAhead">
     </div>
+    <div class="form-row">
+        <label for="node-input-label"><i class="fa fa-tag"></i> Label</label>
+        <input type="text" id="node-input-label">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-bookmark"></i> Topic</label>
+        <input type="text" id="node-input-topic">
+    </div>
 </script>
 
 <script type="text/html" data-help-name="kalman-temp">
@@ -44,5 +54,7 @@
         <li><strong>Q:</strong> Process noise covariance (°C/min/√min) - change with caution</li>
         <li><strong>Predict Interval:</strong> Interval for prediction updates (seconds)</li>
         <li><strong>Look Ahead:</strong> Time in seconds to predict ahead for output</li>
+        <li><strong>Label:</strong> Custom label for the node</li>
+        <li><strong>Topic:</strong> Custom topic for the output message</li>
     </ul>
 </script>

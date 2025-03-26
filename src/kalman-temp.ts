@@ -7,6 +7,7 @@ export interface KalmanTempNodeDef extends NodeDef {
   Q?: number;
   predictInterval?: number;
   lookAhead?: number;
+  topic?: string;
 }
 
 interface Props {
@@ -66,7 +67,13 @@ module.exports = function (RED: NodeAPI) {
         const predictionTime = sendNow + lookAhead;
         props!.kf.predict(predictionTime);
         const [value] = props!.kf.mean();
-        nodeSend([{ ...msg, payload: value }]);
+        nodeSend([
+          {
+            ...msg,
+            payload: value,
+            topic: config.topic || msg.topic,
+          },
+        ]);
       };
       sendValue(now);
       schedulePrediction(sendValue);
