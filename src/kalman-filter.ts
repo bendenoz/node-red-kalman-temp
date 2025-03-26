@@ -1,6 +1,6 @@
 import KalmanClass from "kalman-filter/lib/kalman-filter";
 import StateType from "kalman-filter/lib/state";
-import { performance } from 'perf_hooks';
+import { performance } from "perf_hooks";
 
 require("kalman-filter"); // must be required to init default models
 
@@ -21,7 +21,7 @@ export class KalmanFilter {
   R: number;
 
   /** Q - in degrees per minute per squared minute */
-  Q: number
+  Q: number;
 
   constructor(R: number, Q: number) {
     this.lastTS = -1;
@@ -55,11 +55,10 @@ export class KalmanFilter {
             ];
           },
           /** Q (noise) */
-          covariance: ({
-            steptime,
-          }: { steptime: number }) => {
+          covariance: ({ steptime }: { steptime: number }) => {
             const dTmin = steptime / 60;
-            const rateNoise = this.Q * dTmin ** .5;
+            const rateNoise = this.Q * dTmin ** 0.5;
+            // const dtHour = dTmin / 60;
             const valueNoise = rateNoise * dTmin;
             const correl = 1; // assume total correlation since one determines the other
             return [

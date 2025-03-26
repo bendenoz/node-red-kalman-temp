@@ -1,84 +1,84 @@
 import { Node, NodeDef, NodeAPI } from "node-red";
 import { KalmanFilter } from "./kalman-filter";
-import { performance } from 'perf_hooks';
+import { performance } from "perf_hooks";
 
 export interface KalmanTempNodeDef extends NodeDef {
-    R?: number;
-    Q?: number;
-    predictInterval?: number;
+  R?: number;
+  Q?: number;
+  predictInterval?: number;
 }
 
 interface Props {
-    kf: KalmanFilter;
+  kf: KalmanFilter;
 }
 
 module.exports = function (RED: NodeAPI) {
-    function KalmanTempNode(this: Node, config: KalmanTempNodeDef) {
-        RED.nodes.createNode(this, config);
-        const node = this;
+  function KalmanTempNode(this: Node, config: KalmanTempNodeDef) {
+    RED.nodes.createNode(this, config);
+    const node = this;
 
-        // Set default values using nullish coalescing operator
-        const R = config.R ?? 0.2;
+    // Set default values using nullish coalescing operator
+    const R = config.R ?? 0.2;
         const Q = config.Q ?? 0.001;
-        const interval = Math.max(config.predictInterval ?? 60, 1) * 1000; // Ensure interval is positive
+    const interval = Math.max(config.predictInterval ?? 60, 1) * 1000; // Ensure interval is positive
 
-        let props: Props | undefined;
-        let timeoutId: NodeJS.Timeout | undefined;
+    let props: Props | undefined;
+    let timeoutId: NodeJS.Timeout | undefined;
 
-        const initProps = (initValue: number, initTs: number) => {
-            props = { kf: new KalmanFilter(R, Q) };
-            props.kf.init(initValue, initTs);
+    const initProps = (initValue: number, initTs: number) => {
+      props = { kf: new KalmanFilter(R, Q) };
+      props.kf.init(initValue, initTs);
+    };
+
+    const predict = () => {
+      if (!props) return;
+      const now = performance.now();
+      props.kf.predict(now);
+    };
+
+    const schedulePrediction = (sendCallback: () => void) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        predict();
+        sendCallback();
+        schedulePrediction(sendCallback);
+      }, interval);
+    };
+
+    node.on("input", (msg, send, done) => {
+      const pv = Number(msg.payload);
+      if (isNaN(pv) || !isFinite(pv)) {
+        return node.warn("Input must be a valid number.");
+      }
+
+      // Node-RED 0.x compat - https://nodered.org/docs/creating-nodes/node-js#sending-messages
+      const nodeSend =
+        send ||
+        function (...args) {
+          node.send.apply(node, args);
         };
 
-        const predict = () => {
-            if (!props) return;
-            const now = performance.now();
-            props.kf.predict(now);
-        };
+      const now = performance.now();
+      if (!props) {
+        initProps(pv, now);
+      } else {
+        const st = props.kf.predict(now);
+        props.kf.correct(pv, now);
+      }
 
-        const schedulePrediction = (sendCallback: () => void) => {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => {
-                predict();
-                sendCallback();
-                schedulePrediction(sendCallback);
-            }, interval);
-        };
+      const sendValue = () => {
+        const [value] = props!.kf.mean();
+        nodeSend([{ ...msg, payload: value }]);
+      };
+      sendValue();
+      schedulePrediction(sendValue);
+    });
 
-        node.on("input", (msg, send, done) => {
-            const pv = Number(msg.payload);
-            if (isNaN(pv) || !isFinite(pv)) {
-                return node.warn("Input must be a valid number.");
-            }
+    node.on("close", () => {
+      clearTimeout(timeoutId);
+      props = undefined;
+    });
+  }
 
-            // Node-RED 0.x compat - https://nodered.org/docs/creating-nodes/node-js#sending-messages
-            const nodeSend =
-                send ||
-                function (...args) {
-                node.send.apply(node, args);
-                };
-
-            const now = performance.now();
-            if (!props) {
-                initProps(pv, now);
-            } else {
-                const st = props.kf.predict(now);
-                props.kf.correct(pv, now);
-            }
-
-            const sendValue = () => {
-                const [value] = props!.kf.mean();
-                nodeSend([{ ...msg, payload: value }]);
-            }
-            sendValue();
-            schedulePrediction(sendValue);
-        });
-
-        node.on("close", () => {
-            clearTimeout(timeoutId);
-            props = undefined;
-        });
-    }
-
-    RED.nodes.registerType("kalman-temp", KalmanTempNode);
+  RED.nodes.registerType("kalman-temp", KalmanTempNode);
 };
