@@ -6,6 +6,7 @@ export interface KalmanTempNodeDef extends NodeDef {
   R?: number;
   Q?: number;
   predictInterval?: number;
+  lookAhead?: number;
 }
 
 interface Props {
@@ -19,8 +20,9 @@ module.exports = function (RED: NodeAPI) {
 
     // Set default values using nullish coalescing operator
     const R = config.R ?? 0.2;
-        const Q = config.Q ?? 0.001;
+    const Q = config.Q ?? 0.001;
     const interval = Math.max(config.predictInterval ?? 60, 1) * 1000; // Ensure interval is positive
+    const lookAhead = Math.max(config.lookAhead ?? 0, 0) * 1000; // Ensure lookAhead is non-negative
 
     let props: Props | undefined;
     let timeoutId: NodeJS.Timeout | undefined;
@@ -30,17 +32,11 @@ module.exports = function (RED: NodeAPI) {
       props.kf.init(initValue, initTs);
     };
 
-    const predict = () => {
-      if (!props) return;
-      const now = performance.now();
-      props.kf.predict(now);
-    };
-
-    const schedulePrediction = (sendCallback: () => void) => {
+    const schedulePrediction = (sendCallback: (now: number) => void) => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        predict();
-        sendCallback();
+        const now = performance.now();
+        sendCallback(now);
         schedulePrediction(sendCallback);
       }, interval);
     };
@@ -66,11 +62,13 @@ module.exports = function (RED: NodeAPI) {
         props.kf.correct(pv, now);
       }
 
-      const sendValue = () => {
+      const sendValue = (sendNow: number) => {
+        const predictionTime = sendNow + lookAhead;
+        props!.kf.predict(predictionTime);
         const [value] = props!.kf.mean();
         nodeSend([{ ...msg, payload: value }]);
       };
-      sendValue();
+      sendValue(now);
       schedulePrediction(sendValue);
     });
 

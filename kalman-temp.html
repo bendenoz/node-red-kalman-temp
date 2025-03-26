@@ -5,7 +5,8 @@
         defaults: {
             R: { value: 0.2, required: true, validate: RED.validators.number() },
             Q: { value: 0.001, required: true, validate: RED.validators.number() },
-            predictInterval: { value: 60, required: true, validate: RED.validators.number() } // New parameter
+            predictInterval: { value: 60, required: true, validate: RED.validators.number() },
+            lookAhead: { value: 0, required: true, validate: RED.validators.number() } 
         },
         inputs: 1,
         outputs: 1,
@@ -25,9 +26,13 @@
         <label for="node-input-Q"><i class="fa fa-cog"></i> Rate Noise (Q) (°C/min/√min)</label>
         <input type="text" id="node-input-Q">
     </div>
-    <div class="form-row"> <!-- New input field -->
+    <div class="form-row">
         <label for="node-input-predictInterval"><i class="fa fa-cog"></i> Predict Interval (seconds)</label>
         <input type="text" id="node-input-predictInterval">
+    </div>
+    <div class="form-row">
+        <label for="node-input-lookAhead"><i class="fa fa-cog"></i> Look Ahead (seconds)</label>
+        <input type="text" id="node-input-lookAhead">
     </div>
 </script>
 
@@ -38,5 +43,6 @@
         <li><strong>R:</strong> Measurement noise covariance (°C)</li>
         <li><strong>Q:</strong> Process noise covariance (°C/min/√min) - change with caution</li>
         <li><strong>Predict Interval:</strong> Interval for prediction updates (seconds)</li>
+        <li><strong>Look Ahead:</strong> Time in seconds to predict ahead for output</li>
     </ul>
 </script>
