@@ -3,12 +3,12 @@
         category: "function",
         color: "#a6bbcf",
         defaults: {
+            label: { value: "", required: false },
             R: { value: 0.2, required: true, validate: RED.validators.number() },
             Q: { value: 0.001, required: true, validate: RED.validators.number() },
             predictInterval: { value: 60, required: true, validate: RED.validators.number() },
             lookAhead: { value: 0, required: true, validate: RED.validators.number() },
-            label: { value: "", required: false },
-            topic: { value: "", required: false }
+            topic: { value: "", required: false },
         },
         inputs: 1,
         outputs: 1,
@@ -20,6 +20,10 @@
 </script>
 
 <script type="text/html" data-template-name="kalman-temp">
+    <div class="form-row">
+        <label for="node-input-label"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-label">
+    </div>
     <div class="form-row">
         <label for="node-input-R"><i class="fa fa-cog"></i> Measurement Noise (R) (°C)</label>
         <input type="text" id="node-input-R">
@@ -37,11 +41,7 @@
         <input type="text" id="node-input-lookAhead">
     </div>
     <div class="form-row">
-        <label for="node-input-label"><i class="fa fa-tag"></i> Label</label>
-        <input type="text" id="node-input-label">
-    </div>
-    <div class="form-row">
-        <label for="node-input-topic"><i class="fa fa-bookmark"></i> Topic</label>
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
         <input type="text" id="node-input-topic">
     </div>
 </script>
