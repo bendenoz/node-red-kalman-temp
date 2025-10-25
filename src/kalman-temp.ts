@@ -7,6 +7,7 @@ export interface KalmanTempNodeDef extends NodeDef {
   Q?: number;
   predictInterval?: number;
   lookAhead?: number;
+  fastQFactor?: number;
   topic?: string;
 }
 
@@ -35,13 +36,18 @@ module.exports = function (RED: NodeAPI) {
     const Q = config.Q ?? 0.001;
     const interval = Math.max(config.predictInterval ?? 60, 1) * 1000; // Ensure interval is positive
     const lookAhead = Math.max(config.lookAhead ?? 0, 0) * 1000; // Ensure lookAhead is non-negative
+    // fastQFactor may be missing on node upgrade; default to 1
+    let fastQFactor = Number((config as any).fastQFactor ?? 1);
+    if (!isFinite(fastQFactor) || fastQFactor <= 0) {
+      fastQFactor = 1;
+    }
 
     let props: Props | undefined;
     let timeoutId: NodeJS.Timeout | undefined;
 
     const initProps = (initValue: number, initTs: number) => {
       const slow = new KalmanFilter(R, Q);
-      const fast = new KalmanFilter(R, Q * 10);
+      const fast = new KalmanFilter(R, Q * fastQFactor);
       slow.init(initValue, initTs);
       fast.init(initValue, initTs);
       props = {
