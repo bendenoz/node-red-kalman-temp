@@ -17,6 +17,18 @@
         label: function () {
             return this.label || "Kalman Temp";
         }
+        ,
+        oneditprepare: function() {
+            // Migration support: if fastQFactor is undefined (upgraded node), set it to 1
+            // and show a notification so the user knows the default changed.
+            if (this.fastQFactor === undefined) {
+                this.fastQFactor = 1;
+                $("#node-input-fastQFactor").val(1);
+                RED.notify("Fast Q Factor defaulted to 1 for this upgraded node (new nodes use 10)", "info");
+            } else {
+                $("#node-input-fastQFactor").val(this.fastQFactor);
+            }
+        }
     });
 </script>
 
@@ -57,7 +69,7 @@
     <ul>
         <li><strong>R:</strong> Measurement noise covariance (°C)</li>
         <li><strong>Q:</strong> Process noise covariance (°C/min/√min) - change with caution</li>
-        <li><strong>Fast Q Factor:</strong> Multiplier applied to Q for the fast model (default 10)</li>
+        <li><strong>Fast Q Factor:</strong> Multiplier applied to Q for the fast model (default 10 for new nodes, 1 for upgraded nodes)</li>
         <li><strong>Predict Interval:</strong> Interval for prediction updates (seconds)</li>
         <li><strong>Look Ahead:</strong> Time in seconds to predict ahead for output</li>
         <li><strong>Label:</strong> Custom label for the node</li>
