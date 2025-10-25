@@ -1,0 +1,770 @@
+[
+  {
+    "created_at": 1746263445740,
+    "field5": 21.9
+  },
+  {
+    "created_at": 1746264345742,
+    "field5": 22.7
+  },
+  {
+    "created_at": 1746265245743,
+    "field5": 23.2
+  },
+  {
+    "created_at": 1746266145757,
+    "field5": 23
+  },
+  {
+    "created_at": 1746267045755,
+    "field5": 23.4
+  },
+  {
+    "created_at": 1746267945744,
+    "field5": 23.7
+  },
+  {
+    "created_at": 1746268845745,
+    "field5": 23.8
+  },
+  {
+    "created_at": 1746269745750,
+    "field5": 23.8
+  },
+  {
+    "created_at": 1746270645757,
+    "field5": 24.5
+  },
+  {
+    "created_at": 1746271545754,
+    "field5": 24.8
+  },
+  {
+    "created_at": 1746272445750,
+    "field5": 24.6
+  },
+  {
+    "created_at": 1746273345754,
+    "field5": 24.6
+  },
+  {
+    "created_at": 1746274245748,
+    "field5": 24.6
+  },
+  {
+    "created_at": 1746275145753,
+    "field5": 24.8
+  },
+  {
+    "created_at": 1746276045767,
+    "field5": 24.8
+  },
+  {
+    "created_at": 1746276945769,
+    "field5": 25.1
+  },
+  {
+    "created_at": 1746277845769,
+    "field5": 24.9
+  },
+  {
+    "created_at": 1746278745771,
+    "field5": 24.6
+  },
+  {
+    "created_at": 1746279645776,
+    "field5": 24.8
+  },
+  {
+    "created_at": 1746280545770,
+    "field5": 24.4
+  },
+  {
+    "created_at": 1746281445775,
+    "field5": 24.4
+  },
+  {
+    "created_at": 1746282345768,
+    "field5": 23.4
+  },
+  {
+    "created_at": 1746283245767,
+    "field5": 20
+  },
+  {
+    "created_at": 1746284145775,
+    "field5": 18.7
+  },
+  {
+    "created_at": 1746285045775,
+    "field5": 18.5
+  },
+  {
+    "created_at": 1746285945781,
+    "field5": 18.2
+  },
+  {
+    "created_at": 1746286845787,
+    "field5": 18.6
+  },
+  {
+    "created_at": 1746287745767,
+    "field5": 18.8
+  },
+  {
+    "created_at": 1746288645784,
+    "field5": 19.2
+  },
+  {
+    "created_at": 1746289545785,
+    "field5": 19.8
+  },
+  {
+    "created_at": 1746290445776,
+    "field5": 19.8
+  },
+  {
+    "created_at": 1746291345781,
+    "field5": 19.8
+  },
+  {
+    "created_at": 1746292245780,
+    "field5": 19.7
+  },
+  {
+    "created_at": 1746293145781,
+    "field5": 19.6
+  },
+  {
+    "created_at": 1746294045789,
+    "field5": 19.4
+  },
+  {
+    "created_at": 1746294945787,
+    "field5": 19.4
+  },
+  {
+    "created_at": 1746295845775,
+    "field5": 19.4
+  },
+  {
+    "created_at": 1746296745795,
+    "field5": 18.8
+  },
+  {
+    "created_at": 1746297645791,
+    "field5": 18.7
+  },
+  {
+    "created_at": 1746298545793,
+    "field5": 18.6
+  },
+  {
+    "created_at": 1746299445788,
+    "field5": 18.1
+  },
+  {
+    "created_at": 1746300345801,
+    "field5": 17.9
+  },
+  {
+    "created_at": 1746301245784,
+    "field5": 17.5
+  },
+  {
+    "created_at": 1746302145789,
+    "field5": 17.4
+  },
+  {
+    "created_at": 1746303045800,
+    "field5": 16.9
+  },
+  {
+    "created_at": 1746303945794,
+    "field5": 16.7
+  },
+  {
+    "created_at": 1746304845804,
+    "field5": 16.6
+  },
+  {
+    "created_at": 1746305745807,
+    "field5": 16.4
+  },
+  {
+    "created_at": 1746306645816,
+    "field5": 16.4
+  },
+  {
+    "created_at": 1746307545813,
+    "field5": 16.4
+  },
+  {
+    "created_at": 1746308445828,
+    "field5": 16.2
+  },
+  {
+    "created_at": 1746309345819,
+    "field5": 16.1
+  },
+  {
+    "created_at": 1746310245812,
+    "field5": 15.9
+  },
+  {
+    "created_at": 1746311145809,
+    "field5": 15.8
+  },
+  {
+    "created_at": 1746312048319,
+    "field5": 15.6
+  },
+  {
+    "created_at": 1746312945834,
+    "field5": 15.2
+  },
+  {
+    "created_at": 1746313845825,
+    "field5": 15.2
+  },
+  {
+    "created_at": 1746314745823,
+    "field5": 15.2
+  },
+  {
+    "created_at": 1746315645851,
+    "field5": 15.1
+  },
+  {
+    "created_at": 1746316545856,
+    "field5": 14.9
+  },
+  {
+    "created_at": 1746317445843,
+    "field5": 14.5
+  },
+  {
+    "created_at": 1746318345836,
+    "field5": 14.3
+  },
+  {
+    "created_at": 1746319245847,
+    "field5": 14
+  },
+  {
+    "created_at": 1746320145840,
+    "field5": 13.7
+  },
+  {
+    "created_at": 1746321045852,
+    "field5": 13.6
+  },
+  {
+    "created_at": 1746321945842,
+    "field5": 13.1
+  },
+  {
+    "created_at": 1746322845840,
+    "field5": 12.6
+  },
+  {
+    "created_at": 1746323745852,
+    "field5": 12.6
+  },
+  {
+    "created_at": 1746324645850,
+    "field5": 12.2
+  },
+  {
+    "created_at": 1746325545857,
+    "field5": 11.8
+  },
+  {
+    "created_at": 1746326445863,
+    "field5": 12
+  },
+  {
+    "created_at": 1746327345858,
+    "field5": 11.6
+  },
+  {
+    "created_at": 1746328245873,
+    "field5": 11.4
+  },
+  {
+    "created_at": 1746329145862,
+    "field5": 11.3
+  },
+  {
+    "created_at": 1746330045858,
+    "field5": 11
+  },
+  {
+    "created_at": 1746330945868,
+    "field5": 10.7
+  },
+  {
+    "created_at": 1746331845861,
+    "field5": 10.3
+  },
+  {
+    "created_at": 1746332745862,
+    "field5": 10.3
+  },
+  {
+    "created_at": 1746333645868,
+    "field5": 9.8
+  },
+  {
+    "created_at": 1746334545870,
+    "field5": 9.8
+  },
+  {
+    "created_at": 1746335445874,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746336345865,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746337245873,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746338145881,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746339045873,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746339945868,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746340845879,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746341745885,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746342645888,
+    "field5": 9.7
+  },
+  {
+    "created_at": 1746343545893,
+    "field5": 9.6
+  },
+  {
+    "created_at": 1746344445895,
+    "field5": 10
+  },
+  {
+    "created_at": 1746345345901,
+    "field5": 10.2
+  },
+  {
+    "created_at": 1746346245900,
+    "field5": 10.9
+  },
+  {
+    "created_at": 1746347145909,
+    "field5": 10.8
+  },
+  {
+    "created_at": 1746348045920,
+    "field5": 11.4
+  },
+  {
+    "created_at": 1746348945911,
+    "field5": 11.8
+  },
+  {
+    "created_at": 1746349845917,
+    "field5": 11.9
+  },
+  {
+    "created_at": 1746350745918,
+    "field5": 12.1
+  },
+  {
+    "created_at": 1746351645912,
+    "field5": 12.4
+  },
+  {
+    "created_at": 1746352545916,
+    "field5": 12.6
+  },
+  {
+    "created_at": 1746353445927,
+    "field5": 13.3
+  },
+  {
+    "created_at": 1746354345921,
+    "field5": 13.6
+  },
+  {
+    "created_at": 1746355245928,
+    "field5": 14.2
+  },
+  {
+    "created_at": 1746356145913,
+    "field5": 14
+  },
+  {
+    "created_at": 1746357045922,
+    "field5": 14.1
+  },
+  {
+    "created_at": 1746357945932,
+    "field5": 14.3
+  },
+  {
+    "created_at": 1746358845929,
+    "field5": 14.7
+  },
+  {
+    "created_at": 1746359745938,
+    "field5": 15.2
+  },
+  {
+    "created_at": 1746360645941,
+    "field5": 15
+  },
+  {
+    "created_at": 1746361545942,
+    "field5": 15.2
+  },
+  {
+    "created_at": 1746362445971,
+    "field5": 15.5
+  },
+  {
+    "created_at": 1746363345948,
+    "field5": 15.7
+  },
+  {
+    "created_at": 1746364245954,
+    "field5": 15.3
+  },
+  {
+    "created_at": 1746365145951,
+    "field5": 15.8
+  },
+  {
+    "created_at": 1746366045950,
+    "field5": 15.8
+  },
+  {
+    "created_at": 1746366945945,
+    "field5": 15.8
+  },
+  {
+    "created_at": 1746367845954,
+    "field5": 15.8
+  },
+  {
+    "created_at": 1746368745951,
+    "field5": 16.1
+  },
+  {
+    "created_at": 1746369645949,
+    "field5": 15.7
+  },
+  {
+    "created_at": 1746370545955,
+    "field5": 15.5
+  },
+  {
+    "created_at": 1746371445952,
+    "field5": 15.3
+  },
+  {
+    "created_at": 1746372345951,
+    "field5": 15.1
+  },
+  {
+    "created_at": 1746373245970,
+    "field5": 15.5
+  },
+  {
+    "created_at": 1746374145957,
+    "field5": 15.1
+  },
+  {
+    "created_at": 1746375045969,
+    "field5": 15.2
+  },
+  {
+    "created_at": 1746375945954,
+    "field5": 14.9
+  },
+  {
+    "created_at": 1746376845953,
+    "field5": 14.9
+  },
+  {
+    "created_at": 1746377745955,
+    "field5": 14.7
+  },
+  {
+    "created_at": 1746378645958,
+    "field5": 14
+  },
+  {
+    "created_at": 1746379545958,
+    "field5": 14
+  },
+  {
+    "created_at": 1746380445963,
+    "field5": 13.7
+  },
+  {
+    "created_at": 1746381345965,
+    "field5": 13.7
+  },
+  {
+    "created_at": 1746382245974,
+    "field5": 13.2
+  },
+  {
+    "created_at": 1746383145976,
+    "field5": 13.2
+  },
+  {
+    "created_at": 1746384045970,
+    "field5": 13
+  },
+  {
+    "created_at": 1746384945976,
+    "field5": 13
+  },
+  {
+    "created_at": 1746385845975,
+    "field5": 12.9
+  },
+  {
+    "created_at": 1746386745990,
+    "field5": 12.5
+  },
+  {
+    "created_at": 1746387645986,
+    "field5": 12.2
+  },
+  {
+    "created_at": 1746388545991,
+    "field5": 12.2
+  },
+  {
+    "created_at": 1746389445994,
+    "field5": 12.1
+  },
+  {
+    "created_at": 1746390345989,
+    "field5": 11.8
+  },
+  {
+    "created_at": 1746391246009,
+    "field5": 11.6
+  },
+  {
+    "created_at": 1746392146001,
+    "field5": 11.4
+  },
+  {
+    "created_at": 1746393045992,
+    "field5": 10.9
+  },
+  {
+    "created_at": 1746393946007,
+    "field5": 10.6
+  },
+  {
+    "created_at": 1746394846004,
+    "field5": 10.5
+  },
+  {
+    "created_at": 1746395746005,
+    "field5": 10.3
+  },
+  {
+    "created_at": 1746396646008,
+    "field5": 9.9
+  },
+  {
+    "created_at": 1746397546004,
+    "field5": 9.6
+  },
+  {
+    "created_at": 1746398446008,
+    "field5": 9.3
+  },
+  {
+    "created_at": 1746399346001,
+    "field5": 9.1
+  },
+  {
+    "created_at": 1746400246008,
+    "field5": 8.9
+  },
+  {
+    "created_at": 1746401146011,
+    "field5": 8.8
+  },
+  {
+    "created_at": 1746402046016,
+    "field5": 8.8
+  },
+  {
+    "created_at": 1746402946012,
+    "field5": 8.7
+  },
+  {
+    "created_at": 1746403846019,
+    "field5": 8.4
+  },
+  {
+    "created_at": 1746404746009,
+    "field5": 8.4
+  },
+  {
+    "created_at": 1746405646021,
+    "field5": 8.4
+  },
+  {
+    "created_at": 1746406546019,
+    "field5": 8.1
+  },
+  {
+    "created_at": 1746407446014,
+    "field5": 8.1
+  },
+  {
+    "created_at": 1746408346026,
+    "field5": 8
+  },
+  {
+    "created_at": 1746409246028,
+    "field5": 7.7
+  },
+  {
+    "created_at": 1746410146033,
+    "field5": 7.7
+  },
+  {
+    "created_at": 1746411046028,
+    "field5": 7.2
+  },
+  {
+    "created_at": 1746411946029,
+    "field5": 7
+  },
+  {
+    "created_at": 1746412846023,
+    "field5": 7
+  },
+  {
+    "created_at": 1746413746059,
+    "field5": 7
+  },
+  {
+    "created_at": 1746414646036,
+    "field5": 7
+  },
+  {
+    "created_at": 1746415546026,
+    "field5": 7
+  },
+  {
+    "created_at": 1746416446032,
+    "field5": 6.9
+  },
+  {
+    "created_at": 1746417346032,
+    "field5": 6.9
+  },
+  {
+    "created_at": 1746418246023,
+    "field5": 6.9
+  },
+  {
+    "created_at": 1746419146035,
+    "field5": 6.8
+  },
+  {
+    "created_at": 1746420046037,
+    "field5": 6.7
+  },
+  {
+    "created_at": 1746420946037,
+    "field5": 6.6
+  },
+  {
+    "created_at": 1746421846043,
+    "field5": 6.6
+  },
+  {
+    "created_at": 1746422746045,
+    "field5": 6.7
+  },
+  {
+    "created_at": 1746423646044,
+    "field5": 6.7
+  },
+  {
+    "created_at": 1746424546048,
+    "field5": 7
+  },
+  {
+    "created_at": 1746425446044,
+    "field5": 7.2
+  },
+  {
+    "created_at": 1746426346042,
+    "field5": 7.5
+  },
+  {
+    "created_at": 1746427246052,
+    "field5": 7.6
+  },
+  {
+    "created_at": 1746428146061,
+    "field5": 8.1
+  },
+  {
+    "created_at": 1746429046045,
+    "field5": 8.4
+  },
+  {
+    "created_at": 1746429946061,
+    "field5": 8.6
+  },
+  {
+    "created_at": 1746430846058,
+    "field5": 9.5
+  },
+  {
+    "created_at": 1746431746065,
+    "field5": 9.7
+  },
+  {
+    "created_at": 1746432646058,
+    "field5": 9.8
+  },
+  {
+    "created_at": 1746433546064,
+    "field5": 10
+  },
+  {
+    "created_at": 1746434446069,
+    "field5": 10.4
+  },
+  {
+    "created_at": 1746435346051,
+    "field5": 11.3
+  }
+]
