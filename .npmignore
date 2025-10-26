@@ -4,3 +4,4 @@ fixtures/
 tests/
 *.test.ts
 *.spec.ts
+docker-compose.yml

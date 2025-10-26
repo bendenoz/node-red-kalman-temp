@@ -70,7 +70,7 @@ describe("KalmanFilter MAE comparison", () => {
   fusedPreds.push(mu[0] * meanSlow + mu[1] * meanFast);
     });
 
-    // Calculate MAE
+    // Calculate MMAE (Multiple-Model Adaptive Estimation) MAE
     function mae(preds: number[], actuals: number[]) {
       return (
         preds.reduce((sum, pred, i) => sum + Math.abs(pred - actuals[i]), 0) /
